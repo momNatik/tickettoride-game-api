@@ -1,0 +1,4 @@
+[submodule "tickettoride-backend-common-js"]
+	path = tickettoride-backend-common-js
+	url = https://github.com/momNatik/tickettoride-backend-common-js.git
+	branch = main

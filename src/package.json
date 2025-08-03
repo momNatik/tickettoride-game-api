@@ -1,0 +1,17 @@
+{
+  "name": "gameapi",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "server": "node --env-file=.env index.mjs",
+    "dev": "node --watch --env-file=.env index.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
