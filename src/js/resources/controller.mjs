@@ -10,33 +10,16 @@ export async function GetGameStatusAsync(req, res) {
   res.send(isResourcesReady.toString());
 }
 
-async function SendResourseAsync(key, res) {
-  const fileResponse = await GetFileAsync(key);
-
-  res.writeHead(200, {
-    "Content-Type": fileResponse.ContentType,
-    "Content-Length": fileResponse.ContentLength,
-  });
-
-  const buffer = await fileResponse.Body.transformToByteArray();
-  res.end(buffer);
-}
-
 export async function GetMapAsync(req, res) {
-  const gameId = req.params.gameId;
-  const resourceId = req.params.resourceId;
-
+  const { gameId, resourceId } = req.params;
   const key = GetFileStoreKey(resourceId, gameId);
   await SendResourseAsync(key, res);
 }
 
 export async function GetAvatar(req, res) {
-  const gameId = req.params.gameId;
-  const userId = req.params.userId;
+  const { gameId, userId } = req.params;
   const key = GetFileStoreKey("avatar", gameId, userId);
-  const file = await GetFileAsync(key);
-
-  res.send(file);
+  await SendResourseAsync(key, res);
 }
 
 export async function GetAvatars(req, res) {
@@ -65,4 +48,16 @@ function GetResourceName(type) {
     avatar: "user_avatar.jpg",
   };
   return resourceNames[type];
+}
+
+async function SendResourseAsync(key, res) {
+  const fileResponse = await GetFileAsync(key);
+
+  res.writeHead(200, {
+    "Content-Type": fileResponse.ContentType,
+    "Content-Length": fileResponse.ContentLength,
+  });
+
+  const buffer = await fileResponse.Body.transformToByteArray();
+  res.end(buffer);
 }
