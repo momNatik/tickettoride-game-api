@@ -1,1 +1,30 @@
-http://localhost:3002/abc123/resources/status
+### Read game map background
+# @name game_map_background
+@gameId=game123
+GET {{$dotenv %BASE_URL}}/{{gameId}}/map/background
+
+###
+# @name game_users_avatars
+@gameId=game123
+GET {{$dotenv %BASE_URL}}/{{gameId}}/users/avatar
+
+
+
+# game123_map_background.png
+
+
+
+# ### Auth
+# # @name acccess_token_request
+# POST {{AccessTokenURL}}
+# Content-Type: application/x-www-form-urlencoded
+
+# grant_type=client_credentials
+# &client_id={{DesignerApiClientID}}
+# &client_secret={{DesignerApiClientSecret}}
+# &scope={{DesignerApiScope}}
+
+# ###
+# @AccessToken={{acccess_token_request.response.body.access_token}}
+
+# .env file can be used by referencing variables this way {{$dotenv %MY_VARIABLE}}
