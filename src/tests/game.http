@@ -3,6 +3,11 @@
 @gameId=game123
 GET {{$dotenv %BASE_URL}}/{{gameId}}/map/background
 
+### Read game map topology
+# @name game_map_topology
+@gameId=game123
+GET {{$dotenv %BASE_URL}}/{{gameId}}/map/topology
+
 ###
 # @name game_users_avatars
 @gameId=game123

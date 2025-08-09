@@ -4,20 +4,17 @@ import {
   GetFilesByPrefixAsync,
 } from "../../../tickettoride-backend-common/src/file-store/game-files.mjs";
 
-export async function GetGameStatus(req, res) {
+export async function GetGameStatusAsync(req, res) {
   res.setHeader("Content-Type", "text/plain");
   const isResourcesReady = await IsResourcesReadyAsync(req.params.gameId);
   res.send(isResourcesReady.toString());
 }
 
-export async function GetMapBackgroundImage(req, res) {
-  res.setHeader("Content-Type", "image/png");
-  const gameId = req.params.gameId;
-  const key = GetFileStoreKey("background", gameId);
+async function SendResourseAsync(key, res) {
   const fileResponse = await GetFileAsync(key);
 
   res.writeHead(200, {
-    "Content-Type": "image/jpeg",
+    "Content-Type": fileResponse.ContentType,
     "Content-Length": fileResponse.ContentLength,
   });
 
@@ -25,17 +22,15 @@ export async function GetMapBackgroundImage(req, res) {
   res.end(buffer);
 }
 
-export async function GetMapTopology(req, res) {
-  res.setHeader("Content-Type", "image/png");
+export async function GetMapAsync(req, res) {
   const gameId = req.params.gameId;
-  const key = GetFileStoreKey("topology", gameId);
-  const file = await GetFileAsync(key);
+  const resourceId = req.params.resourceId;
 
-  res.send(file);
+  const key = GetFileStoreKey(resourceId, gameId);
+  await SendResourseAsync(key, res);
 }
 
 export async function GetAvatar(req, res) {
-  res.setHeader("Content-Type", "image/png");
   const gameId = req.params.gameId;
   const userId = req.params.userId;
   const key = GetFileStoreKey("avatar", gameId, userId);
@@ -45,7 +40,6 @@ export async function GetAvatar(req, res) {
 }
 
 export async function GetAvatars(req, res) {
-  res.setHeader("Content-Type", "image/png");
   const gameId = req.params.gameId;
   const key = GetFileStoreKey("avatar", gameId);
   const files = await GetFilesByPrefixAsync(key);
