@@ -17,8 +17,8 @@ export async function GetMapAsync(req, res) {
 }
 
 export async function GetAvatar(req, res) {
-  const { gameId, userId } = req.params;
-  const key = GetFileStoreKey("avatar", gameId, userId);
+  const { gameId, playerId } = req.params;
+  const key = GetFileStoreKey("avatar", gameId, playerId);
   await SendResourseAsync(key, res);
 }
 
@@ -45,7 +45,7 @@ function GetResourceName(type) {
   const resourceNames = {
     background: "map_background.png",
     topology: "map_topology.svg",
-    avatar: "user_avatar.jpg",
+    avatar: "player_avatar.jpg",
   };
   return resourceNames[type];
 }
