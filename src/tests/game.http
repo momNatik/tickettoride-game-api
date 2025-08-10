@@ -8,11 +8,30 @@ GET {{$dotenv %BASE_URL}}/{{gameId}}/map/background
 @gameId=game123
 GET {{$dotenv %BASE_URL}}/{{gameId}}/map/topology
 
-###
-# @name game_users_avatars
+### Read players avatars
+# @name game_players_avatars
 @gameId=game123
-GET {{$dotenv %BASE_URL}}/{{gameId}}/users/avatar
+GET {{$dotenv %BASE_URL}}/{{gameId}}/players/avatar
 
+### Create game
+# @name create_game
+POST {{$dotenv %BASE_URL}}
+Content-Type: application/json
+
+{
+  "id": "j8gD4k",
+  "players": [
+    {
+      "id": "aS6urW",
+      "name": "Alisa",
+      "color": "2F0080"
+    }
+  ],
+  "statistics": {
+    "playTime": 3600,
+    "winnerId": "aS6urW"
+  }
+}
 
 
 # game123_map_background.png

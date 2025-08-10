@@ -4,6 +4,10 @@ import {
   GetFilesByPrefixAsync,
 } from "../../../tickettoride-backend-common/src/file-store/game-files.mjs";
 
+export async function CreateGameAsync(req, res) {
+
+}
+
 export async function GetGameStatusAsync(req, res) {
   res.setHeader("Content-Type", "text/plain");
   const isResourcesReady = await IsResourcesReadyAsync(req.params.gameId);
