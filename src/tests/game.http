@@ -19,7 +19,7 @@ POST {{$dotenv %BASE_URL}}
 Content-Type: application/json
 
 {
-  "id": "j8gD4k",
+  "_id": "j8gD5b",
   "players": [
     {
       "id": "aS6urW",
