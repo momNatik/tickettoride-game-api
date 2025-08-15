@@ -1,14 +1,21 @@
 import DB from "../../../tickettoride-backend-common/src/db/provider.mjs";
+import QUEUE from "../../../tickettoride-backend-common/src/queue/queue.mjs";
 
-let channelInfo;
+
+let channel;
 
 export async function InitAsync() {
-  channelInfo = await OpenChannelAsync(process.env.QUEUE_NAME);
+  const connection = await QUEUE.ConnectAsync();
+
+  channel = await QUEUE.CreateChannelAsync(
+    connection,
+    process.env.QUEUE_NAME
+  );
 }
 
 export async function InitGameAsync(req, res) {
   const msg = req.body;
-  await SendMessageToQueue(channelInfo, msg);
+  await QUEUE.SendMessageToQueue(channel, process.env.QUEUE_NAME, msg);
 }
 
 export async function CreateGameAsync(req, res) {
