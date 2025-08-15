@@ -13,6 +13,18 @@ GET {{$dotenv %BASE_URL}}/{{gameId}}/map/topology
 @gameId=game123
 GET {{$dotenv %BASE_URL}}/{{gameId}}/players/avatar
 
+### Init game
+# @name init_game
+POST {{$dotenv %BASE_URL}}/init
+Content-Type: application/json
+
+{
+    "gameId": "aG3k7S",
+    "paletteType": "earth",
+    "width": 320,
+    "height": 240
+}
+
 ### Create game
 # @name create_game
 POST {{$dotenv %BASE_URL}}

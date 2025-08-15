@@ -3,16 +3,20 @@ import { InitAsync, RegisterGameEndpoints } from "./js/game/router.mjs";
 import { RegisterMapEndpoints } from "./js/map/router.mjs";
 import { RegisterPlayerEndpoints } from "./js/player/router.mjs";
 
-const port = process.env.PORT;
+Main();
 
-const app = express();
+async function Main() {
+  const port = process.env.PORT;
 
-app.use(express.json());
+  const app = express();
 
-InitAsync();
+  app.use(express.json());
 
-RegisterGameEndpoints(app);
-RegisterMapEndpoints(app);
-RegisterPlayerEndpoints(app);
+  await InitAsync();
 
-app.listen(port, () => console.log("Game API waiting for connections..."));
+  RegisterGameEndpoints(app);
+  RegisterMapEndpoints(app);
+  RegisterPlayerEndpoints(app);
+
+  app.listen(port, () => console.log("Game API waiting for connections..."));
+}
