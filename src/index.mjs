@@ -6,7 +6,7 @@ import { RegisterPlayerEndpoints } from "./js/player/router.mjs";
 Main();
 
 async function Main() {
-  const port = process.env.PORT;
+  const port = process.env.GAME_API_PORT;
 
   const app = express();
 

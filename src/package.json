@@ -4,8 +4,8 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "server": "node --env-file=.env index.mjs",
-    "dev": "node --watch --env-file=.env index.mjs"
+    "server": "node --env-file=../../.env index.mjs",
+    "dev": "node --watch --env-file=../../.env index.mjs"
   },
   "author": "",
   "license": "ISC",
