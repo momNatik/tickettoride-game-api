@@ -5,7 +5,7 @@ export async function InitAsync() {
 }
 
 export function RegisterGameEndpoints(app) {
-  app.post("/init", Controller.InitGameAsync);
+  app.post("/:gameId/init", Controller.InitGameAsync);
   app.post("/", Controller.CreateGameAsync);
   app.get("/:gameId/status", Controller.GetGameStatusAsync);
 }
