@@ -17,7 +17,7 @@ async function InitAsync() {
 async function InitGameAsync(req, res) {
   const msg = req.body;
   console.log(`Initializing game '${msg.gameId}'`);
-  await QUEUE.SendMessageToQueue(channel, process.env.QUEUE_NAME, msg);
+  // await QUEUE.SendMessageToQueue(channel, process.env.QUEUE_NAME, msg);
   res.send();
 }
 
