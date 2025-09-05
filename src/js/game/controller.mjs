@@ -6,18 +6,24 @@ export default { InitAsync, InitGameAsync, CreateGameAsync, GetGameStatusAsync }
 let channel;
 
 async function InitAsync() {
+  console.log("Connecting to queue...");
   const connection = await QUEUE.ConnectAsync();
+  console.log("Connected to queue");
   
   channel = await QUEUE.CreateChannelAsync(
     connection,
     process.env.QUEUE_NAME
   );
+  console.log("Created channel");
 }
 
 async function InitGameAsync(req, res) {
-  const msg = req.body;
-  console.log(`Initializing game '${msg.gameId}'`);
-  // await QUEUE.SendMessageToQueue(channel, process.env.QUEUE_NAME, msg);
+  const gameId = req.params.gameId;
+  const msg = {
+    gameId: gameId
+  };
+  console.log(`Initializing game '${gameId}'`);
+  await QUEUE.SendMessageToQueue(channel, process.env.QUEUE_NAME, msg);
   res.send();
 }
 
