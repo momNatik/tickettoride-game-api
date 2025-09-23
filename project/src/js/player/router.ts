@@ -1,4 +1,4 @@
-import { GetAvatar } from "./controller.mjs";
+import { GetAvatar } from "./controller.js";
 
 export function RegisterPlayerEndpoints(app) {
   // app.get("/:gameId/players/avatar", GetAvatars);

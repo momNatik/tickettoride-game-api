@@ -1,8 +1,8 @@
 import express from "express";
-import { InitAsync, RegisterGameEndpoints } from "./js/game/router.mjs";
-import { RegisterMapEndpoints } from "./js/map/router.mjs";
-import { RegisterPlayerEndpoints } from "./js/player/router.mjs";
-import LOGGING from "../tickettoride-backend-common/src/logging/log.mjs";
+import { InitAsync, RegisterGameEndpoints } from "./js/game/router.js";
+import { RegisterMapEndpoints } from "./js/map/router.js";
+import { RegisterPlayerEndpoints } from "./js/player/router.js";
+import LOGGING from "@common/logging/log.js";
 
 LOGGING.ShowStartInfo("GAME_API_NAME");
 

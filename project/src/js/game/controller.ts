@@ -1,5 +1,5 @@
-import DB from "../../../tickettoride-backend-common/src/db/provider.mjs";
-import QUEUE from "../../../tickettoride-backend-common/src/queue/queue.mjs";
+import DB from "@common/db/provider.js";
+import QUEUE from "@common/queue/queue.js";
 
 export default {
   InitAsync,

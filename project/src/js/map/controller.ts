@@ -1,4 +1,4 @@
-import { GetFileStoreKey, SendResourseAsync } from "../../../tickettoride-backend-common/src/file-store/file-store-utils.mjs"; 
+import { GetFileStoreKey, SendResourseAsync } from "@common/file-store/file-store-utils.js"; 
 
 export async function GetMapAsync(req, res) {
   const { gameId, resourceId } = req.params;

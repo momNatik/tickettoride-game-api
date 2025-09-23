@@ -1,4 +1,4 @@
-import Controller from "./controller.mjs";
+import Controller from "./controller.js";
 
 export async function InitAsync() {
  await Controller.InitAsync();
