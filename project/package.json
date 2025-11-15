@@ -12,7 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.864.0",
     "express": "^5.1.0",
-   "ts-paths-esm-loader": "^1.4.3"
+    "ts-paths-esm-loader": "^1.4.3"
   },
   "devDependencies": {
     "@types/node": "^24.3.1",
