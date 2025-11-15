@@ -1,7 +1,7 @@
-### Read game map background
-# @name game_map_background
+### Read game map landscape
+# @name game_map_landscape
 @gameId=game123
-GET {{$dotenv %BASE_URL}}/{{gameId}}/map/background
+GET {{$dotenv %BASE_URL}}/{{gameId}}/map/landscape
 
 ### Read game map topology
 # @name game_map_topology
@@ -46,7 +46,7 @@ Content-Type: application/json
 }
 
 
-# game123_map_background.png
+# game123_map_landscape.png
 
 
 
