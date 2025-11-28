@@ -23,6 +23,9 @@ async function InitGameAsync(req, res) {
   const gameId = req.params.gameId;
   const msg = {
     gameId: gameId,
+    numberOfPlayers: parseInt(req.body['number-of-players']),
+    numberOfCities: parseInt(req.body['number-of-cities']),
+    playWithComputer: !!req.body['play-with-computer'],
     paletteType: "earth",
     width: 320,
     height: 240,
